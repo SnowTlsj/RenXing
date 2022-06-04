@@ -6,10 +6,10 @@ export CODE618="lww7gFk"
 
 建议禁用，避免其他问题 需要的请填写自己的码子，
 
-cron 0 0,12,20 * * * jd_suoyong.js
+cron 0 0,20 * * * jd_suoyong.js
 
 */
-const $ = new Env('618红包');
+const $ = new Env('618京享红包');
 $.CODE618 = $.isNode() ? (process.env.CODE618 ? process.env.CODE618 : '') : '';
 const jdCookieNode = require('./jdCookie.js');
 let cookiesArr = [];
@@ -30,7 +30,7 @@ let appId, fingerprint, token, enCryptMethodJD;
         $.msg($.name, '【提示】请先获取京东账号一cookie\n直接使用NobyDa的京东签到获取', 'https://bean.m.jd.com/bean/signIndex.action', { "open-url": "https://bean.m.jd.com/bean/signIndex.action" });
         return;
     }
-    console.log('请务必填写你的Code！变量：export CODE618="" \n\n请务必填写你的Code！变量：export CODE618=""\n\n个人建议禁用,避免其他问题\n')
+    console.log('\n个人建议禁用,避免其他问题\n')
     $.CryptoJS = $.isNode() ? require('crypto-js') : CryptoJS;
     appId = '6a98d';
     let fglist = ['6289931560897925', '0403403318679778', '1390288884563462'];
