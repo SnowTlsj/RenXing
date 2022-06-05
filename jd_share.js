@@ -1,10 +1,10 @@
 /* 
-关注 https://t.me/okyydsnb
+export jd_fxyl_activituid=""
 7 7 7 7 7 jd_share.js
 注意控制ck数量
 */
 
-const $ = new Env("分享有礼");
+const $ = new Env("分享有礼_fxyl版");
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 const notify = $.isNode() ? require('./sendNotify') : '';
 let cookiesArr = [], cookie = '', message = '';
