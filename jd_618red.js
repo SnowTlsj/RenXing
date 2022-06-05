@@ -6,7 +6,7 @@ export CODE618="lww7gFk"
 
 建议禁用，避免其他问题 需要的请填写自己的码子，
 
-cron 0 0,20 * * * jd_suoyong.js
+cron 0 0 * * * jd_618red.js
 
 */
 const $ = new Env('618京享红包');
