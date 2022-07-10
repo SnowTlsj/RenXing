@@ -2,7 +2,7 @@
 脚本仅供参考，请在24小时内删除本项目<br>
 ### 拉库命令 库中包含test_|me_自用脚本（默认拉库命令不含）
 ```Bash
-ql repo https://ghproxy.com/https://github.com/SnowTlsj/RenXing.git "jd_|m_|pkc_|jdCookie" "activity|backUp" "^jd[^_]|USER|function|utils|sendNotify|JDJRValidator_|sign_graphics_validate|ql|JDSignValidator|magic"
+ql repo https://ghproxy.com/https://github.com/SnowTlsj/RenXing.git "jd_|m_|pkc_jdCookie.js" "" "^jd[^_]|USER|function|utils|sendNotify"
 ```
 ### 监控储存桶，请自行替换全部 OPnUNixpl9I_ 部分为自己的Clients,set jd_cookie env_listens xxxxx
 ```Bash
