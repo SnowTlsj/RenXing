@@ -12,6 +12,7 @@ ql repo https://ghproxy.com/https://github.com/SnowTlsj/RenXing.git "jd_|m_|pkc_
 ```Bash
 export yhypin="jd_xxxxxxxx"
 export jd_wdz_pin="jd_xxxxxxxx"
+export OWN_COOKIE_NUM="20"
 export jd_wdz_activityUrl="https://cjhydz-isv.isvjcloud.com"
 export jd_cjhy_activityUrl="https://cjhydz-isv.isvjcloud.com"
 export jd_zdjr_activityUrl="https://lzkjdz-isv.isvjcloud.com"
