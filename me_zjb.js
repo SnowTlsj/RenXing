@@ -2,7 +2,7 @@
 #极速版赚金币
 ##入口为极速版 百元生活费 赚金币 邀请好友
 ##第一次运行可不填写邀请码 运行一次查看自己的邀请码
-export InviterPin="9vOskAagcMJ4EOWXPQSS9A%3D%3D" ##你的邀请码
+export InviterPin="rlNJtSzYPmUgCq3ezx1BJpWETmKazT8G6C/PnbRdEzA=" ##你的邀请码
 ##助力逻辑：填写你的邀请码变量之后会助力你填写的邀请码
 
 
