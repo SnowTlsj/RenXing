@@ -21,9 +21,11 @@ boxjs订阅：https://git.metauniverse-cn.com/https://raw.githubusercontent.com/
 [rewrite_remote]
 https://git.metauniverse-cn.com/https://raw.githubusercontent.com/curtinlv/gd/main/dy/cx.conf, tag=订阅-Curtin, update-interval=172800, opt-parser=false, enabled=true
 
+cron:1 1 1 1 *
+============Quantumultx===============
 [task_local]
 #PKC-特效关注有礼
-1 1 1 1 1 jd_txgzyl.js, tag=PKC-特效关注有礼, enabled=true
+1 1 1 1 * jd_txgzyl.js, tag=PKC-特效关注有礼, enabled=true
 
 
 */
@@ -39,82 +41,82 @@ $.countBean={};
 let isGetbody = typeof $request !== 'undefined';
 
 !(async () => {
-    if (isGetbody) {
-        // Telegram 为监控准备，抓body自动发到tg监控bot设置变量
-        TG_BOT_TOKEN = ($.getdata('TG_BOT_TOKEN') || '');
-        TG_USER_ID = ($.getdata('TG_USER_ID') || '');
-        TG_API_HOST = ($.getdata('TG_API_HOST') || 'api.telegram.org');
-        TG_PROXY_HOST = ($.getdata('TG_PROXY_HOST') || '');
-        TG_PROXY_PORT = ($.getdata('TG_PROXY_PORT') || '');
-        TG_PROXY_AUTH = ($.getdata('TG_PROXY_AUTH') || '');
+     if (isGetbody) {
+         // Telegram 为监控准备，抓body自动发到tg监控bot设置变量
+         TG_BOT_TOKEN = ($.getdata('TG_BOT_TOKEN') || '');
+         TG_USER_ID = ($.getdata('TG_USER_ID') || '');
+         TG_API_HOST = ($.getdata('TG_API_HOST') || 'api.telegram.org');
+         TG_PROXY_HOST = ($.getdata('TG_PROXY_HOST') || '');
+         TG_PROXY_PORT = ($.getdata('TG_PROXY_PORT') || '');
+         TG_PROXY_AUTH = ($.getdata('TG_PROXY_AUTH') || '');
         await GetBody();
         $.done();
-    }
+}
     await requireConfig();
     if (!cookiesArr[0]) {
-        $.msg($.name, '【提示】请先获取京东账号一cookie\n直接使用NobyDa的京东签到获取', 'https://bean.m.jd.com/bean/signIndex.action', {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
-        return;
+    $.msg($.name, '【提示】请先获取京东账号一cookie\n直接使用NobyDa的京东签到获取', 'https://bean.m.jd.com/bean/signIndex.action', {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
+    return;
     }
 
-    for ( let b = 0; b < $.activityIdArr.length; b++){
-        label = 0;
-        for (let i = 0; i < cookiesArr.length; i++) {
-            if (cookiesArr[i]) {
-                cookie = cookiesArr[i];
-                $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
-                $.index = i + 1;
-                $.isLogin = true;
-                $.nickName = '';
-                nickname = `${$.nickName || $.UserName}`;
-                await TotalBean();
-                console.log(`\n开始【京东账号${$.index}】${$.nickName || $.UserName}\n`);
-                if (!$.isLogin) {
-                    $.msg($.name, `【提示】cookie已失效`, `京东账号${$.index} ${$.nickName || $.UserName}\n请重新登录获取\nhttps://bean.m.jd.com/bean/signIndex.action`, {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
+  for ( let b = 0; b < $.activityIdArr.length; b++){
+    label = 0;
+    for (let i = 0; i < cookiesArr.length; i++) {
+    if (cookiesArr[i]) {
+      cookie = cookiesArr[i];
+      $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
+      $.index = i + 1;
+      $.isLogin = true;
+      $.nickName = '';
+      nickname = `${$.nickName || $.UserName}`;
+      //await TotalBean();
+      console.log(`\n开始【京东账号${$.index}】${$.nickName || $.UserName}\n`);
+      if (!$.isLogin) {
+        $.msg($.name, `【提示】cookie已失效`, `京东账号${$.index} ${$.nickName || $.UserName}\n请重新登录获取\nhttps://bean.m.jd.com/bean/signIndex.action`, {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
 
-                    if ($.isNode()) {
-                        await notify.sendNotify(`${$.name}cookie已失效 - ${$.UserName}`, `京东账号${$.index} ${$.UserName}\n请重新登录获取cookie`);
-                    }
-                    continue
-                }
-                activityId = $.activityIdArr[b];
-                await isvObfuscator(sleeptime);
-                await activity(sleeptime);
-                await activityContent(sleeptime);
-                if (label === 4){
-                    break
-                }
-                // await getSimpleActInfoVo();
-
-                await getMyPing(sleeptime);
-                await draw(sleeptime);
-                if($.index != cookiesArr.length){
-                    // 每个账号间隔随机休眠几秒
-                    await $.wait(parseInt(Math.random() * 5000 + 100, 10));
-                }
-            }
+        if ($.isNode()) {
+          await notify.sendNotify(`${$.name}cookie已失效 - ${$.UserName}`, `京东账号${$.index} ${$.UserName}\n请重新登录获取cookie`);
         }
-
-    }
-    //count
-    if($.countBean){
-        $.message += '\n-----------【PKC特效关注有礼】-----------\n';
-        for (var key in $.countBean){
-            $.message += `【账号】${key} ${$.countBean[key]}\n`
+        continue
+      }
+      activityId = $.activityIdArr[b];
+      await isvObfuscator(sleeptime);
+      await activity(sleeptime);
+      await activityContent(sleeptime);
+      if (label === 4){
+          break
         }
-    }
+        // await getSimpleActInfoVo();
 
-    if ($.isNode()) {
-        console.log(`${$.name}\n${$.message}`);
-        await notify.sendNotify($.name, $.message);
-    }else {
-        $.msg($.name, ``, $.message);
+       await getMyPing(sleeptime);
+       await draw(sleeptime);
+       if($.index != cookiesArr.length){
+           // 每个账号间隔随机休眠几秒
+          await $.wait(parseInt(Math.random() * 5000 + 100, 10));
+      }
     }
+  }
+
+  }
+     //count
+  if($.countBean){
+      $.message += '\n-----------【PKC特效关注有礼】-----------\n';
+      for (var key in $.countBean){
+          $.message += `【账号】${key} ${$.countBean[key]}\n`
+      }
+  }
+
+  if ($.isNode()) {
+      console.log(`${$.name}\n${$.message}`);
+      await notify.sendNotify($.name, $.message);
+  }else {
+      $.msg($.name, ``, $.message);
+  }
 })()
     .catch((e) => {
-        $.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '')
+      $.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '')
     })
     .finally(() => {
-        $.done();
+      $.done();
     });
 
 
@@ -122,7 +124,7 @@ async function GetBody() {
     if ($request && $request.url.indexOf("wxShopGift/draw") >= 0) {
 
         if (typeof $request.body !== 'undefined'){
-            modifiedBody = $request.body;
+             modifiedBody = $request.body;
             const gzylBodyVal = modifiedBody.match(/activityId=(.*?)&/)[1];;
             if (gzylBodyVal) $.setdata(gzylBodyVal, "PKC_TXGZYL");
             $.log(
@@ -150,7 +152,7 @@ async function activity(timeout = 500) {
                     'Host' : `lzkj-isv.isvjcloud.com`,
                     'User-Agent' : $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('./USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "Mozilla/5.0 (iPhone; CPU iPhone OS 15_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x18001236) NetType/WIFI Language/zh_CN"),
                     'Accept-Language' : `zh-CN,zh-Hans;q=0.9`
-                },
+                    },
 
                 body: ``
             };
@@ -166,9 +168,9 @@ async function activity(timeout = 500) {
                     }
                     // console.log(r_cookie);
 
-                    // // $.data = JSON.parse(data);
-                    //  $.log(`测试activity🚩resp: ${JSON.stringify(resp, null ,'\t')}`);
-                    //  console.log(JSON.stringify($.data,null, '\t'));
+                     // // $.data = JSON.parse(data);
+                     //  $.log(`测试activity🚩resp: ${JSON.stringify(resp, null ,'\t')}`);
+                     //  console.log(JSON.stringify($.data,null, '\t'));
                 } catch (e) {
                     $.logErr(e, resp);
                 } finally {
@@ -186,17 +188,17 @@ async function getSimpleActInfoVo(timeout = 500) {
                 url: `https://lzkj-isv.isvjcloud.com/customer/getSimpleActInfoVo`,
 
                 headers: {
-                    'X-Requested-With' : `XMLHttpRequest`,
-                    'Connection' : `keep-alive`,
-                    'Accept-Encoding' : `gzip, deflate, br`,
-                    'Content-Type' : `application/x-www-form-urlencoded`,
-                    'Origin' : `https://lzkj-isv.isvjcloud.com`,
-                    'User-Agent' : $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('./USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "Mozilla/5.0 (iPhone; CPU iPhone OS 15_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x18001236) NetType/WIFI Language/zh_CN"),
-                    'Cookie' :`IsvToken=${token};`+ cookie + r_cookie ,
-                    'Host' : `lzkj-isv.isvjcloud.com`,
-                    'Referer' : `https://lzkj-isv.isvjcloud.com/wxShopGift/activity?activityId=${activityId}&sid=${randomString(32,'xx')}w&un_area=${randomString(2,'int')}_${randomString(4,'int')}_${randomString(4,'int')}_${randomString(5,'int')}`,
-                    'Accept-Language' : `zh-CN,zh-Hans;q=0.9`,
-                    'Accept' : `application/json`
+                        'X-Requested-With' : `XMLHttpRequest`,
+                        'Connection' : `keep-alive`,
+                        'Accept-Encoding' : `gzip, deflate, br`,
+                        'Content-Type' : `application/x-www-form-urlencoded`,
+                        'Origin' : `https://lzkj-isv.isvjcloud.com`,
+                        'User-Agent' : $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('./USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "Mozilla/5.0 (iPhone; CPU iPhone OS 15_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x18001236) NetType/WIFI Language/zh_CN"),
+                        'Cookie' :`IsvToken=${token};`+ cookie + r_cookie ,
+                        'Host' : `lzkj-isv.isvjcloud.com`,
+                        'Referer' : `https://lzkj-isv.isvjcloud.com/wxShopGift/activity?activityId=${activityId}&sid=${randomString(32,'xx')}w&un_area=${randomString(2,'int')}_${randomString(4,'int')}_${randomString(4,'int')}_${randomString(5,'int')}`,
+                        'Accept-Language' : `zh-CN,zh-Hans;q=0.9`,
+                        'Accept' : `application/json`
                 },
 
                 body: `activityId=${activityId}`
@@ -222,9 +224,9 @@ async function getSimpleActInfoVo(timeout = 500) {
                     console.log(venderId);
                     console.log(shopId);
                     // return
-                    // // $.data = JSON.parse(data);
-                    //  $.log(`测试activity🚩resp: ${JSON.stringify(resp, null ,'\t')}`);
-                    //  console.log(JSON.stringify($.data,null, '\t'));
+                     // // $.data = JSON.parse(data);
+                     //  $.log(`测试activity🚩resp: ${JSON.stringify(resp, null ,'\t')}`);
+                     //  console.log(JSON.stringify($.data,null, '\t'));
                 } catch (e) {
                     $.logErr(e, resp);
                 } finally {
@@ -242,17 +244,17 @@ async function activityContent(timeout = 500) {
                 url: `https://lzkj-isv.isvjcloud.com/wxShopGift/activityContent`,
 
                 headers: {
-                    'X-Requested-With' : `XMLHttpRequest`,
-                    'Connection' : `keep-alive`,
-                    'Accept-Encoding' : `gzip, deflate, br`,
-                    'Content-Type' : `application/x-www-form-urlencoded`,
-                    'Origin' : `https://lzkj-isv.isvjcloud.com`,
-                    'User-Agent' : $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('./USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "Mozilla/5.0 (iPhone; CPU iPhone OS 15_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x18001236) NetType/WIFI Language/zh_CN"),
-                    'Cookie' : cookie,
-                    'Host' : `lzkj-isv.isvjcloud.com`,
-                    'Referer' : ``,
-                    'Accept-Language' : `zh-CN,zh-Hans;q=0.9`,
-                    'Accept' : `application/json`
+                        'X-Requested-With' : `XMLHttpRequest`,
+                        'Connection' : `keep-alive`,
+                        'Accept-Encoding' : `gzip, deflate, br`,
+                        'Content-Type' : `application/x-www-form-urlencoded`,
+                        'Origin' : `https://lzkj-isv.isvjcloud.com`,
+                        'User-Agent' : $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('./USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "Mozilla/5.0 (iPhone; CPU iPhone OS 15_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x18001236) NetType/WIFI Language/zh_CN"),
+                        'Cookie' : cookie,
+                        'Host' : `lzkj-isv.isvjcloud.com`,
+                        'Referer' : ``,
+                        'Accept-Language' : `zh-CN,zh-Hans;q=0.9`,
+                        'Accept' : `application/json`
                 },
 
                 body: `activityId=${activityId}&buyerPin=${randomString(64)}`
@@ -263,29 +265,29 @@ async function activityContent(timeout = 500) {
             $.post(url, async (err, resp, data) => {
                 try {
                     $.data = JSON.parse(data);
-                    // console.log(`activityContent🚩${JSON.stringify($.data, null, '\t')}`);
-                    if($.data.result){
-                        userId=$.data.data.userId;
-                        endTime=$.data.data.endTime;
-                        list=$.data.data.list;
-                        lp = '';
-                        for (var k in list){
-                            lp += list[k]['takeNum'] + list[k]['type']+ ' '
-                        }
-                        if(lp){
-                            lp_list = lp.replace('jd', '京豆').replace('jf','积分').replace('dq','东券')
-                            console.log(`${$.nickName || $.UserName} 哇！快看，特效真美美美，biubiu~`)
-                        }
-                        if(Math.round(new Date().getTime())>endTime){
-                            console.log(`活动已结束`);
-                            label = 4
-                        }
-                        if(list.length === 0){
-                            console.log(`礼品已领完`);
-                            label = 4
-                        }
+                      // console.log(`activityContent🚩${JSON.stringify($.data, null, '\t')}`);
+                      if($.data.result){
+                            userId=$.data.data.userId;
+                            endTime=$.data.data.endTime;
+                            list=$.data.data.list;
+                            lp = '';
+                            for (var k in list){
+                                lp += list[k]['takeNum'] + list[k]['type']+ ' '
+                            }
+                            if(lp){
+                                lp_list = lp.replace('jd', '京豆').replace('jf','积分').replace('dq','东券')
+                                console.log(`${$.nickName || $.UserName} 哇！快看，特效真美美美，biubiu~`)
+                            }
+                            if(Math.round(new Date().getTime())>endTime){
+                                console.log(`活动已结束`);
+                                label = 4
+                            }
+                            if(list.length === 0){
+                                console.log(`礼品已领完`);
+                                label = 4
+                            }
 
-                    }
+                      }
                 } catch (e) {
                     $.logErr(e, resp);
                 } finally {
@@ -304,16 +306,16 @@ async function isvObfuscator(timeout = 500) {
                 url: `https://api.m.jd.com/client.action?functionId=isvObfuscator`,
 
                 headers : {
-                    'Connection' : `keep-alive`,
-                    'Accept-Encoding' : `gzip, deflate, br`,
-                    'Content-Type' : `application/x-www-form-urlencoded`,
-                    'User-Agent' : `JD4iPhone/167874%20(iPhone;%20iOS;%20Scale/3.00)`,
-                    'Cookie' : cookie,
-                    'Host' : `api.m.jd.com`,
-                    'Referer' : ``,
-                    'Accept-Language' : `zh-Hans-CN;q=1, en-CN;q=0.9`,
-                    'Accept' : `*/*`
-                },
+                     'Connection' : `keep-alive`,
+                     'Accept-Encoding' : `gzip, deflate, br`,
+                     'Content-Type' : `application/x-www-form-urlencoded`,
+                     'User-Agent' : `JD4iPhone/167874%20(iPhone;%20iOS;%20Scale/3.00)`,
+                     'Cookie' : cookie,
+                     'Host' : `api.m.jd.com`,
+                     'Referer' : ``,
+                     'Accept-Language' : `zh-Hans-CN;q=1, en-CN;q=0.9`,
+                     'Accept' : `*/*`
+                     },
                 body: body
             };
             // console.log(JSON.stringify(url));
@@ -323,13 +325,13 @@ async function isvObfuscator(timeout = 500) {
                     //     $.log(`测试🚩: ${data}`)
                     //   $.log(`请求token测试🚩resp: ${JSON.stringify(resp, null ,'\t')}`);
                     //   console.log(JSON.stringify($.data,null, '\t'));
-                    if($.data.errcode === 0){
-                        token = $.data.token
-                        // console.log(`Toekn: ${token}`)
-                    }else {
-                        token = '';
-                        console.log(`token获取失败 ${$.data.message}`);
-                    }
+                      if($.data.errcode === 0){
+                          token = $.data.token
+                          // console.log(`Toekn: ${token}`)
+                      }else {
+                          token = '';
+                          console.log(`token获取失败 ${$.data.message}`);
+                      }
                 } catch (e) {
                     $.logErr(e, resp);
                     token = '';
@@ -348,17 +350,17 @@ async function getMyPing(timeout = 500) {
                 url: `https://lzkj-isv.isvjcloud.com/customer/getMyPing`,
 
                 headers: {
-                    'X-Requested-With' : `XMLHttpRequest`,
-                    'Connection' : `keep-alive`,
-                    'Accept-Encoding' : `gzip, deflate, br`,
-                    'Content-Type' : `application/x-www-form-urlencoded`,
-                    'Origin' : `https://lzkj-isv.isvjcloud.com`,
-                    'User-Agent' : $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('./USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "Mozilla/5.0 (iPhone; CPU iPhone OS 15_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x18001236) NetType/WIFI Language/zh_CN"),
-                    'Cookie' :`IsvToken=${token};`+ cookie + r_cookie ,
-                    'Host' : `lzkj-isv.isvjcloud.com`,
-                    'Referer' : `https://lzkj-isv.isvjcloud.com/wxShopGift/activity?activityId=${activityId}&sid=${randomString(32,'xx')}w&un_area=${randomString(2,'int')}_${randomString(4,'int')}_${randomString(4,'int')}_${randomString(5,'int')}`,
-                    'Accept-Language' : `zh-CN,zh-Hans;q=0.9`,
-                    'Accept' : `application/json`
+                        'X-Requested-With' : `XMLHttpRequest`,
+                        'Connection' : `keep-alive`,
+                        'Accept-Encoding' : `gzip, deflate, br`,
+                        'Content-Type' : `application/x-www-form-urlencoded`,
+                        'Origin' : `https://lzkj-isv.isvjcloud.com`,
+                        'User-Agent' : $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('./USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "Mozilla/5.0 (iPhone; CPU iPhone OS 15_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x18001236) NetType/WIFI Language/zh_CN"),
+                        'Cookie' :`IsvToken=${token};`+ cookie + r_cookie ,
+                        'Host' : `lzkj-isv.isvjcloud.com`,
+                        'Referer' : `https://lzkj-isv.isvjcloud.com/wxShopGift/activity?activityId=${activityId}&sid=${randomString(32,'xx')}w&un_area=${randomString(2,'int')}_${randomString(4,'int')}_${randomString(4,'int')}_${randomString(5,'int')}`,
+                        'Accept-Language' : `zh-CN,zh-Hans;q=0.9`,
+                        'Accept' : `application/json`
                 },
                 body: `userId=${userId}&token=${token}&fromType=APP_shopGift`
 
@@ -369,24 +371,24 @@ async function getMyPing(timeout = 500) {
             $.post(url, async (err, resp, data) => {
                 try {
                     // $.data = JSON.parse(data);
-                    if(err){
-                        $.log(`${JSON.stringify(err)}`);
-                    }else {
-                        $.data = JSON.parse(data);
-                        rep_cookies = resp.headers['set-cookie'];
-                        // console.log(rep_cookies);
-                        r_cookie='';
-                        for(var c in rep_cookies){
-                            r_cookie += rep_cookies[c].split(" ")[0];
-                        }
-                        if($.data.result){
-                            username=$.data.data.nickname;
-                            pin=encodeURIComponent($.data.data.secretPin);
+                     if(err){
+                         $.log(`${JSON.stringify(err)}`);
+                     }else {
+                         $.data = JSON.parse(data);
+												 rep_cookies = resp.headers['set-cookie'];
+												// console.log(rep_cookies);
+												r_cookie='';
+												for(var c in rep_cookies){
+														r_cookie += rep_cookies[c].split(" ")[0];
+												}
+                          if($.data.result){
+                              username=$.data.data.nickname;
+                              pin=encodeURIComponent($.data.data.secretPin);
 
-                        }else {
-                            console.log(`${$.data.errorMessage}`)
-                        }
-                    }
+                          }else {
+                              console.log(`${$.data.errorMessage}`)
+                          }
+                     }
 
                 } catch (e) {
                     $.logErr(e, resp);
@@ -405,17 +407,17 @@ async function draw(timeout = 500) {
                 url: `https://lzkj-isv.isvjcloud.com/wxShopGift/draw`,
 
                 headers: {
-                    'X-Requested-With' : `XMLHttpRequest`,
-                    'Connection' : `keep-alive`,
-                    'Accept-Encoding' : `gzip, deflate, br`,
-                    'Content-Type' : `application/x-www-form-urlencoded`,
-                    'Origin' : `https://lzkj-isv.isvjcloud.com`,
-                    'User-Agent' : $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('./USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "Mozilla/5.0 (iPhone; CPU iPhone OS 15_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x18001236) NetType/WIFI Language/zh_CN"),
-                    'Cookie' :`IsvToken=${token};`+ cookie + r_cookie ,
-                    'Host' : `lzkj-isv.isvjcloud.com`,
-                    'Referer' : `https://lzkj-isv.isvjcloud.com/wxShopGift/activity?activityId=${activityId}&sid=${randomString(32,'xx')}w&un_area=${randomString(2,'int')}_${randomString(4,'int')}_${randomString(4,'int')}_${randomString(5,'int')}`,
-                    'Accept-Language' : `zh-CN,zh-Hans;q=0.9`,
-                    'Accept' : `application/json`
+                        'X-Requested-With' : `XMLHttpRequest`,
+                        'Connection' : `keep-alive`,
+                        'Accept-Encoding' : `gzip, deflate, br`,
+                        'Content-Type' : `application/x-www-form-urlencoded`,
+                        'Origin' : `https://lzkj-isv.isvjcloud.com`,
+                        'User-Agent' : $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('./USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "Mozilla/5.0 (iPhone; CPU iPhone OS 15_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x18001236) NetType/WIFI Language/zh_CN"),
+                        'Cookie' :`IsvToken=${token};`+ cookie + r_cookie ,
+                        'Host' : `lzkj-isv.isvjcloud.com`,
+                        'Referer' : `https://lzkj-isv.isvjcloud.com/wxShopGift/activity?activityId=${activityId}&sid=${randomString(32,'xx')}w&un_area=${randomString(2,'int')}_${randomString(4,'int')}_${randomString(4,'int')}_${randomString(5,'int')}`,
+                        'Accept-Language' : `zh-CN,zh-Hans;q=0.9`,
+                        'Accept' : `application/json`
                 },
                 body: `activityId=${activityId}&buyerPin=${pin}&hasFollow=false&accessType=app`
 
@@ -425,26 +427,26 @@ async function draw(timeout = 500) {
             $.post(url, async (err, resp, data) => {
                 try {
                     // $.data = JSON.parse(data);
-                    if(err){
-                        $.log(`${JSON.stringify(err)}`);
-                    }else {
-                        $.data = JSON.parse(data);
-                        // console.log(JSON.stringify($.data,null, '\t'));
-                        if($.data.result){
-                            console.log(`\tYes, 关注成功领取 ${lp_list}`);
-                            getlp = lp_list
-                        }else {
-                            console.log(`\t${$.data.errorMessage}`);
-                            getlp = $.data.errorMessage
-                        }
+                     if(err){
+                         $.log(`${JSON.stringify(err)}`);
+                     }else {
+                         $.data = JSON.parse(data);
+                         // console.log(JSON.stringify($.data,null, '\t'));
+                          if($.data.result){
+                              console.log(`\tYes, 关注成功领取 ${lp_list}`);
+                              getlp = lp_list
+                          }else {
+                              console.log(`\t${$.data.errorMessage}`);
+                              getlp = $.data.errorMessage
+                          }
 
-                        if($.countBean[username]){
-                            $.countBean[username] += getlp;
-                        }else {
-                            $.countBean[username] = getlp;
-                        }
-                    }
-                    console.log("*****************************************")
+                          if($.countBean[username]){
+                                $.countBean[username] += getlp;
+                            }else {
+                                $.countBean[username] = getlp;
+                           }
+                     }
+                     console.log("*****************************************")
 
                 } catch (e) {
                     $.logErr(e, resp);
@@ -457,93 +459,93 @@ async function draw(timeout = 500) {
 }
 
 function randomString(len, lx='hh') {
-    len = len || 32;
-    if(lx==='hh'){
-        var $chars = 'ABCDEFGHJKMNPQRSTWXYZoOLlabcde9gqfhijkmnVvprstwxyz234Uu5I1678';    /****默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1****/
-    }
-    else if(lx === 'xx') {
-        var $chars = 'abcdefhijkmnprstwxyzolgqvu0192345678';    /****默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1****/
-    }
-    else if(lx ==='dx'){
-        var $chars = 'ABCDEFGHJKMNPQRSTWXYZUVILO0192345678';
-    }
-    else if(lx ==='int'){
-        var $chars = '0192345678';
-    }
-    var maxPos = $chars.length;
-    var pwd = '';
-    for (i = 0; i < len; i++) {
-        pwd += $chars.charAt(Math.floor(Math.random() * maxPos));
-    }
-    return pwd;
-};
+　　len = len || 32;
+     if(lx==='hh'){
+         var $chars = 'ABCDEFGHJKMNPQRSTWXYZoOLlabcde9gqfhijkmnVvprstwxyz234Uu5I1678';    /****默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1****/
+     }
+     else if(lx === 'xx') {
+         var $chars = 'abcdefhijkmnprstwxyzolgqvu0192345678';    /****默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1****/
+     }
+     else if(lx ==='dx'){
+         var $chars = 'ABCDEFGHJKMNPQRSTWXYZUVILO0192345678';
+     }
+     else if(lx ==='int'){
+         var $chars = '0192345678';
+     }
+  　　var maxPos = $chars.length;
+  　　var pwd = '';
+  　　for (i = 0; i < len; i++) {
+  　　　　pwd += $chars.charAt(Math.floor(Math.random() * maxPos));
+  　　}
+ 　　return pwd;
+ };
 function get_times(lx='ms') {
-    let timeInMS = Math.round(new Date().getTime());
-    let timeInSecond = Math.floor(timeInMS/1000);
-    // var times = ''
-    if(lx==='ms'){
-        return timeInMS
-    }else if(lx==='ss'){
-        return timeInSecond
-    }else {
-        return ''
-    }
+     let timeInMS = Math.round(new Date().getTime());
+     let timeInSecond = Math.floor(timeInMS/1000);
+     // var times = ''
+     if(lx==='ms'){
+         return timeInMS
+     }else if(lx==='ss'){
+         return timeInSecond
+     }else {
+         return ''
+     }
 }
 
 function tgBotNotify(text, desp) {
-    return  new Promise(resolve => {
-        if (TG_BOT_TOKEN && TG_USER_ID) {
-            var bodys = {"chat_id": TG_USER_ID, "text": text+"\n"+desp, "disable_web_page_preview": true};
-            const options = {
-                url: `https://${TG_API_HOST}/bot${TG_BOT_TOKEN}/sendMessage`,
-                body: JSON.stringify(bodys),
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                timeout
+  return  new Promise(resolve => {
+    if (TG_BOT_TOKEN && TG_USER_ID) {
+        var bodys = {"chat_id": TG_USER_ID, "text": text+"\n"+desp, "disable_web_page_preview": true};
+        const options = {
+        url: `https://${TG_API_HOST}/bot${TG_BOT_TOKEN}/sendMessage`,
+        body: JSON.stringify(bodys),
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        timeout
+      }
+      // console.log(JSON.stringify(options, null, "\t"));
+      if (TG_PROXY_HOST && TG_PROXY_PORT) {
+        const tunnel = require("tunnel");
+        const agent = {
+          https: tunnel.httpsOverHttp({
+            proxy: {
+              host: TG_PROXY_HOST,
+              port: TG_PROXY_PORT * 1,
+              proxyAuth: TG_PROXY_AUTH
             }
-            // console.log(JSON.stringify(options, null, "\t"));
-            if (TG_PROXY_HOST && TG_PROXY_PORT) {
-                const tunnel = require("tunnel");
-                const agent = {
-                    https: tunnel.httpsOverHttp({
-                        proxy: {
-                            host: TG_PROXY_HOST,
-                            port: TG_PROXY_PORT * 1,
-                            proxyAuth: TG_PROXY_AUTH
-                        }
-                    })
-                }
-                Object.assign(options, { agent })
-            }
-            $.post(options, (err, resp, data) => {
-                try {
-                    if (err) {
-                        console.log('telegram发送通知消息失败！！\n');
-                        console.log(err);
-                    } else {
-                        data = JSON.parse(data);
-                        if (data.ok) {
-                            console.log('Telegram发送通知消息成功🎉。\n')
-                            $.msg(`【PKC提示】`, `[${$.name}]变量已推送到监控群组【${data.result.chat.title}】\n`);
-                        } else if (data.error_code === 400) {
-                            console.log('请主动给bot发送一条消息并检查接收用户ID是否正确。\n')
-                        } else if (data.error_code === 401){
-                            console.log('Telegram bot token 填写错误。\n')
-                        }
-                    }
-                } catch (e) {
-                    $.logErr(e, resp);
-                } finally {
-                    resolve(data);
-                }
-            })
-        } else {
-            console.log('可提供TG机器人推送变量到监控\nboxjs订阅：https://gitee.com/curtinlv/Curtin/raw/master/Boxjs/curtin.boxjs.json\n');
-            $.msg(`【PKC提示】`, '可提供TG机器人推送变量到指定监控群组\nboxjs订阅：https://gitee.com/curtinlv/Curtin/raw/master/Boxjs/curtin.boxjs.json\n');
-            resolve()
+          })
         }
-    })
+        Object.assign(options, { agent })
+      }
+      $.post(options, (err, resp, data) => {
+        try {
+          if (err) {
+            console.log('telegram发送通知消息失败！！\n');
+            console.log(err);
+          } else {
+            data = JSON.parse(data);
+            if (data.ok) {
+                console.log('Telegram发送通知消息成功🎉。\n')
+                $.msg(`【PKC提示】`, `[${$.name}]变量已推送到监控群组【${data.result.chat.title}】\n`);
+            } else if (data.error_code === 400) {
+              console.log('请主动给bot发送一条消息并检查接收用户ID是否正确。\n')
+            } else if (data.error_code === 401){
+              console.log('Telegram bot token 填写错误。\n')
+            }
+          }
+        } catch (e) {
+          $.logErr(e, resp);
+        } finally {
+          resolve(data);
+        }
+      })
+    } else {
+      console.log('可提供TG机器人推送变量到监控\nboxjs订阅：https://gitee.com/curtinlv/Curtin/raw/master/Boxjs/curtin.boxjs.json\n');
+      $.msg(`【PKC提示】`, '可提供TG机器人推送变量到指定监控群组\nboxjs订阅：https://gitee.com/curtinlv/Curtin/raw/master/Boxjs/curtin.boxjs.json\n');
+      resolve()
+    }
+  })
 }
 
 async function sendNotify(text, desp) {
@@ -551,98 +553,98 @@ async function sendNotify(text, desp) {
     await Promise.all([
         tgBotNotify(text, desp),//telegram 机器人
 
-    ])
+  ])
 }
 
 function requireConfig() {
-    return new Promise(resolve => {
-        notify = $.isNode() ? require('./sendNotify') : '';
-        //Node.js用户请在jdCookie.js处填写京东ck;
-        const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
-        const activityIdArrNode = $.isNode() ? process.env.PKC_TXGZYL.split('@') : [];
+  return new Promise(resolve => {
+    notify = $.isNode() ? require('./sendNotify') : '';
+    //Node.js用户请在jdCookie.js处填写京东ck;
+    const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
+    const activityIdArrNode = $.isNode() ? process.env.PKC_TXGZYL.split('@') : [];
 
-        // IOS等用户直接用NobyDa的jd cookie
-        if ($.isNode()) {
-            Object.keys(jdCookieNode).forEach((item) => {
-                if (jdCookieNode[item]) {
-                    cookiesArr.push(jdCookieNode[item])
-                }
-            });
-            if (process.env.JD_DEBUG && process.env.JD_DEBUG === 'false') console.log = () => {};
-
-        } else {
-            cookiesArr = [$.getdata('CookieJD'), $.getdata('CookieJD2'), ...jsonParse($.getdata('CookiesJD') || "[]").map(item => item.cookie)].filter(item => !!item);
+    // IOS等用户直接用NobyDa的jd cookie
+    if ($.isNode()) {
+      Object.keys(jdCookieNode).forEach((item) => {
+        if (jdCookieNode[item]) {
+          cookiesArr.push(jdCookieNode[item])
         }
-        console.log(`共${cookiesArr.length}个京东账号\n`)
-        $.activityIdArr = [];
-        if ($.isNode()) {
-            Object.keys(activityIdArrNode).forEach((item) => {
-                if (activityIdArrNode[item]) {
-                    $.activityIdArr.push(activityIdArrNode[item])
-                }
-            })
-        } else {
-            if ($.getdata('pkc_txgzyl')) $.activityIdArr = $.getdata('pkc_txgzyl').split('@').filter(item => !!item);
-            // console.log(`\nBoxJs设置的${$.name}关注有礼body:${$.getdata('gzylbody') ? $.getdata('gzylbody') : '暂无'}\n`);
-        }
+      });
+    if (process.env.JD_DEBUG && process.env.JD_DEBUG === 'false') console.log = () => {};
 
-        console.log(`您提供了${$.activityIdArr.length}个的特效关注有礼店铺活动\n`);
-        resolve()
-    })
+    } else {
+      cookiesArr = [$.getdata('CookieJD'), $.getdata('CookieJD2'), ...jsonParse($.getdata('CookiesJD') || "[]").map(item => item.cookie)].filter(item => !!item);
+    }
+    console.log(`共${cookiesArr.length}个京东账号\n`)
+    $.activityIdArr = [];
+    if ($.isNode()) {
+      Object.keys(activityIdArrNode).forEach((item) => {
+        if (activityIdArrNode[item]) {
+          $.activityIdArr.push(activityIdArrNode[item])
+        }
+      })
+    } else {
+      if ($.getdata('pkc_txgzyl')) $.activityIdArr = $.getdata('pkc_txgzyl').split('@').filter(item => !!item);
+      // console.log(`\nBoxJs设置的${$.name}关注有礼body:${$.getdata('gzylbody') ? $.getdata('gzylbody') : '暂无'}\n`);
+    }
+
+    console.log(`您提供了${$.activityIdArr.length}个的特效关注有礼店铺活动\n`);
+    resolve()
+  })
 }
 function TotalBean() {
-    return new Promise(async resolve => {
-        const options = {
-            "url": `https://wq.jd.com/user/info/QueryJDUserInfo?sceneval=2`,
-            "headers": {
-                "Accept": "application/json,text/plain, */*",
-                "Content-Type": "application/x-www-form-urlencoded",
-                "Accept-Encoding": "gzip, deflate, br",
-                "Accept-Language": "zh-cn",
-                "Connection": "keep-alive",
-                "Cookie": cookie,
-                "Referer": "https://wqs.jd.com/my/jingdou/my.shtml?sceneval=2",
-                "User-Agent": $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('./USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.4.4;14.3;network/4g;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1")
+  return new Promise(async resolve => {
+    const options = {
+      "url": `https://wq.jd.com/user/info/QueryJDUserInfo?sceneval=2`,
+      "headers": {
+        "Accept": "application/json,text/plain, */*",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Accept-Encoding": "gzip, deflate, br",
+        "Accept-Language": "zh-cn",
+        "Connection": "keep-alive",
+        "Cookie": cookie,
+        "Referer": "https://wqs.jd.com/my/jingdou/my.shtml?sceneval=2",
+        "User-Agent": $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('./USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.4.4;14.3;network/4g;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1")
+      }
+    }
+    $.post(options, (err, resp, data) => {
+      try {
+        if (err) {
+          console.log(`${JSON.stringify(err)}`)
+          console.log(`${$.name} API请求失败，请检查网路重试`)
+        } else {
+          if (data) {
+            data = JSON.parse(data);
+            if (data['retcode'] === 13) {
+              $.isLogin = false; //cookie过期
+              return
             }
+            if (data['retcode'] === 0 && data.base && data.base.nickname) {
+              $.nickName = data.base.nickname;
+            }
+          } else {
+            console.log(`京东服务器返回空数据`)
+          }
         }
-        $.post(options, (err, resp, data) => {
-            try {
-                if (err) {
-                    console.log(`${JSON.stringify(err)}`)
-                    console.log(`${$.name} API请求失败，请检查网路重试`)
-                } else {
-                    if (data) {
-                        data = JSON.parse(data);
-                        if (data['retcode'] === 13) {
-                            $.isLogin = false; //cookie过期
-                            return
-                        }
-                        if (data['retcode'] === 0 && data.base && data.base.nickname) {
-                            $.nickName = data.base.nickname;
-                        }
-                    } else {
-                        console.log(`京东服务器返回空数据`)
-                    }
-                }
-            } catch (e) {
-                $.logErr(e)
-            } finally {
-                resolve();
-            }
-        })
+      } catch (e) {
+        $.logErr(e)
+      } finally {
+        resolve();
+      }
     })
+  })
 }
 
 function jsonParse(str) {
-    if (typeof str == "string") {
-        try {
-            return JSON.parse(str);
-        } catch (e) {
-            console.log(e);
-            $.msg($.name, '', '请勿随意在BoxJs输入框修改内容\n建议通过脚本去获取cookie')
-            return [];
-        }
+  if (typeof str == "string") {
+    try {
+      return JSON.parse(str);
+    } catch (e) {
+      console.log(e);
+      $.msg($.name, '', '请勿随意在BoxJs输入框修改内容\n建议通过脚本去获取cookie')
+      return [];
     }
+  }
 }
 
 
