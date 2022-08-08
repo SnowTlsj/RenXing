@@ -11,6 +11,7 @@ ql repo https://ghproxy.com/https://github.com/SnowTlsj/RenXing.git "jd_|m_|pkc_
 ```
 ### 变量默认url，写入配置文件
 ```Bash
+export APITOKEN="tg找@@JD_API_bot获取"
 export yhypin="jd_xxxxxxxx"
 export jd_wdz_pin="jd_xxxxxxxx"
 export OWN_COOKIE_NUM="20"
