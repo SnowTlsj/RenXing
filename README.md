@@ -1,7 +1,7 @@
 # RenXing
 脚本仅供参考，请在24小时内删除本项目<br>
 脚本全部来源于Faker，环境，KR，YYDS，锦鲤偷撸库，未删减<br>
-### 拉库命令 库中包含test_|me_自用脚本（默认拉库命令只包含人形所需脚本）M系列暂不可用，已移除magic，后续重填
+### 拉库命令 库中包含test_|me_自用脚本（默认拉库命令只包含人形所需脚本）
 ```Bash
 ql repo https://ghproxy.com/https://github.com/SnowTlsj/RenXing.git "jd_|pkc_|jdCookie.js" "" "^jd[^_]|USER|function|utils|sendNotify"
 ```
@@ -19,4 +19,26 @@ export jd_wdz_activityUrl="https://cjhydz-isv.isvjcloud.com"
 export jd_cjhy_activityUrl="https://cjhydz-isv.isvjcloud.com"
 export jd_zdjr_activityUrl="https://lzkjdz-isv.isvjcloud.com"
 export jd_wdzfd_activityUrl="https://cjhydz-isv.isvjcloud.com"
+```
+### 脚本所需依赖
+```Bash
+png-js
+date-fns
+axios
+dotenv
+got
+crypto-js
+md5
+ts-md5
+tslib
+@types/node
+request
+tough-cookie
+jsdom
+download
+tunnel
+ws
+js-base64
+qrcode-terminal
+moment
 ```
