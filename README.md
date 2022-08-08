@@ -3,7 +3,7 @@
 脚本全部来源于Faker，环境，KR，YYDS，锦鲤偷撸库，未删减<br>
 ### 拉库命令 库中包含test_|me_自用脚本（默认拉库命令只包含人形所需脚本）M系列暂不可用，已移除magic，后续重填
 ```Bash
-ql repo https://ghproxy.com/https://github.com/SnowTlsj/RenXing.git "jd_|m_|pkc_|jdCookie.js" "" "^jd[^_]|USER|function|utils|sendNotify"
+ql repo https://ghproxy.com/https://github.com/SnowTlsj/RenXing.git "jd_|pkc_|jdCookie.js" "" "^jd[^_]|USER|function|utils|sendNotify"
 ```
 ### 监控储存桶，请自行替换全部 TiWzogf-F0ul 部分为自己的Clients,set jd_cookie env_listens xxxxx
 ```Bash
