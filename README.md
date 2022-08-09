@@ -42,3 +42,5 @@ js-base64
 qrcode-terminal
 moment
 ```
+### 赞赏设置
+![image](funtcion/msg.png)
