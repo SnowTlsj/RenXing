@@ -24,7 +24,7 @@ export JD_TRY_MINSUPPLYNUM="1" #最小提供数量
 export JD_TRY_SENDNUM="10" #每隔多少账号发送一次通知，默认为4
 export JD_TRY_UNIFIED="false" 默认采用不同试用组
 
-定时自定义，能用多久随缘了！！！
+cron "5 0-23/4 * * *" me_try3.js, tag:京东试用3
  */
 if (!process.env.APITOKEN){
     console.log('请到https://t.me/jd_api获取token，设置变量export APITOKEN=你的Token来运行')
