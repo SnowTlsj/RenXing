@@ -198,9 +198,10 @@ let args_xh = {
             })
             return
         }
-	      
+        let ONE1=Math.ceil($.cookiesArr.length/3);
+        console.log(`本次执行${ONE1}个账号\n`);
         args_xh.tabId = args_xh.tabId.sort(() => 0.5 - Math.random())
-        for (let i = 0; i < $.cookiesArr.length; i++) {
+        for (let i = 0; i < ONE1; i++) {
             if ($.cookiesArr[i]) {
                 $.cookie = $.cookiesArr[i];
                 $.UserName = decodeURIComponent($.cookie.match(/pt_pin=(.+?);/) && $.cookie.match(/pt_pin=(.+?);/)[1])
@@ -319,7 +320,6 @@ function requireConfig() {
             $.cookiesArr = [$.getdata('CookieJD'), $.getdata('CookieJD2'), ...jsonParse($.getdata('CookiesJD') || "[]").map(item => item.cookie)].filter(item => !!item);
         }
         for(let keyWord of $.innerKeyWords) args_xh.titleFilters.push(keyWord)
-        console.log(`共${$.cookiesArr.length}个京东账号\n`)
         if(args_xh.env){
             console.log('=========环境变量配置如下=========')
             console.log(`env: ${typeof args_xh.env}, ${args_xh.env}`)
