@@ -43,4 +43,4 @@ qrcode-terminal
 moment
 ```
 ### 赞赏设置
-![image](funtcion/msg.png)
+![image](function/msg.png)
