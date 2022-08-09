@@ -198,6 +198,11 @@ let args_xh = {
             })
             return
         }
+	    
+	let lnTotalAcc=Math.ceil(cookiesArr.length/5);
+            console.log(`本次执行${lnTotalAcc}个账号\n`);
+            for (let i = 0; i < lnTotalAcc; i++) {
+	      
         args_xh.tabId = args_xh.tabId.sort(() => 0.5 - Math.random())
         for (let i = 0; i < $.cookiesArr.length; i++) {
             if ($.cookiesArr[i]) {
