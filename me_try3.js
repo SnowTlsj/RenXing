@@ -25,9 +25,10 @@ export JD_TRY_SENDNUM="10" #每隔多少账号发送一次通知，默认为4
 export JD_TRY_UNIFIED="false" 默认采用不同试用组
 
 定时自定义，能用多久随缘了！！！
+cron "3 2-23/4 * * *" me_try3.js, tag:京东试用3
  */
 
-const $ = new Env('京东试用')
+const $ = new Env('京东试用3')
 const URL = 'https://api.m.jd.com/client.action'
 let trialActivityIdList = []
 let trialActivityTitleList = []
