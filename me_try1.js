@@ -195,8 +195,10 @@ let args_xh = {
             })
             return
         }
+        let ONE1=Math.ceil($.cookiesArr.length/3);
+        console.log(`本次执行1到${ONE1}个账号\n`);
         args_xh.tabId = args_xh.tabId.sort(() => 0.5 - Math.random())
-        for (let i = 0; i < $.cookiesArr.length; i++) {
+        for (let i = 0; i < ONE1; i++) {
             if ($.cookiesArr[i]) {
                 $.cookie = $.cookiesArr[i];
                 $.UserName = decodeURIComponent($.cookie.match(/pt_pin=(.+?);/) && $.cookie.match(/pt_pin=(.+?);/)[1])
