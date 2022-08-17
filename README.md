@@ -19,6 +19,7 @@ export jd_wdz_activityUrl="https://cjhydz-isv.isvjcloud.com"
 export jd_cjhy_activityUrl="https://cjhydz-isv.isvjcloud.com"
 export jd_zdjr_activityUrl="https://lzkjdz-isv.isvjcloud.com"
 export jd_wdzfd_activityUrl="https://cjhydz-isv.isvjcloud.com"
+export InviterPin="rlNJtSzYPmUgCq3ezx1BJpWETmKazT8G6C/PnbRdEzA=" ##你的邀请码
 ```
 ### 青龙面板脚本所需js依赖
 ```Bash
