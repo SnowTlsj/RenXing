@@ -16,7 +16,7 @@
 
 //export LUCK_DRAW_OPENCARD="true"  不填写不会加入店铺会员  
 
-cron:1 1 1 1 *
+cron:1 1 1 1 1
 ============Quantumultx===============
 [task_local]
 #幸运抽奖通用活动-加密
