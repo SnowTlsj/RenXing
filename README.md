@@ -44,5 +44,13 @@ qrcode-terminal
 moment
 ds
 ```
+### 所需py依赖
+```Bash
+requests
+canvas
+ping3
+jieba
+redis
+```
 ### 赞赏设置
 ![image](function/msg.png)
