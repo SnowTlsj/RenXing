@@ -1,5 +1,5 @@
 /*
-CJ组队瓜分京豆
+CJ组队瓜分京豆1
 https://cjhydz-isv.isvjcloud.com/wxTeam/activity?activityId=xxx
 
 export jd_cjhy_activityId="xxx"
