@@ -52,6 +52,7 @@ canvas
 ping3
 jieba
 redis
+bs4
 ```
 ### 赞赏设置
 ![image](function/msg.png)
