@@ -21,7 +21,7 @@ ql repo https://ghproxy.com/https://github.com/SnowTlsj/RenXing.git "jd_|pkc_|jd
 | Keyword | 脚本名字   |
 | Envs    | 监控变量   |
 | Clients | 青龙应用ID |
-## 变量默认url，写入配置文件config.sh
+## 变量默认url，写入配置文件config.sh，替换jd_xxxx为自己的pin值
 ```Bash
 export yhypin="jd_xxxxxxxx"
 export jd_wdz_pin="jd_xxxxxxxx"
