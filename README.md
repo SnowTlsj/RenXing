@@ -6,6 +6,7 @@
 ```Bash
 ql repo https://ghproxy.com/https://github.com/SnowTlsj/RenXing.git "jd_|pkc_|jdCookie.js" "" "^jd[^_]|USER|function|utils|sendNotify"
 ```
+### 拉库参数详情
 | jd_\|pkc_\|jdCookie.js               | 普通监控 |
 |--------------------------------------|----------|
 | jd_\|pkc_\|kanjia_\|jdCookie.js      | 增加砍价 |
