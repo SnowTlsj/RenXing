@@ -1,7 +1,7 @@
 # RenXing
 脚本仅供参考，请在24小时内删除本项目<br>
-本仓库建立在芝士ql spy功能上<br>
-脚本全部来源于Faker，环境，KR，YYDS，锦鲤偷撸库，未删减<br>
+本仓库建立在     芝士ql spy   功能上<br>
+脚本全部来源于  Faker，环境，KR，YYDS，锦鲤偷撸库  未删减<br>
 ## 拉库命令 库中包含test_|me_自用脚本（默认拉库命令只包含人形所需脚本）
 ```Bash
 ql repo https://ghproxy.com/https://github.com/SnowTlsj/RenXing.git "jd_|pkc_|jdCookie.js" "" "^jd[^_]|USER|function|utils|sendNotify"
