@@ -35,7 +35,7 @@ export jd_wdzfd_activityUrl="https://cjhydz-isv.isvjcloud.com"
 export InviterPin="rlNJtSzYPmUgCq3ezx1BJpWETmKazT8G6C/PnbRdEzA=" ##你的邀请码
 ```
 ## 本仓库需配合锦鲤偷撸仓库使用，并额外安装redis（需青龙2.10.13版本）
-锦鲤偷撸 https://github.com/HarbourJ/HarbourToulu
+锦鲤偷撸 https://github.com/HarbourJ/HarbourToulu<br>
 Docker安装redis
 ```Bash
 docker run -p 6379:6379 --name redis -v /mydata/redis/data:/data -v /mydata/redis/conf/redis.conf:/etc/redis/redis.conf --restart always -itd redis redis-server /etc/redis/redis.conf --appendonly yes
