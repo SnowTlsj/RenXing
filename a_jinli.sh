@@ -5,6 +5,7 @@
 # export Proxy_Url="代理网址 例如：星空、熊猫 生成选择txt 一次一个"
 # export AUTO_OPEN_JINLI_READPACKET="true" # 助力满自动开红包，默认不开
 # export JINLI_REDPACKET_IDS="要助力的红包ID&要助力的红包ID" # 英文'&'分隔，设置了此变量就直接助力,不获取助力码了
+# export JINLI_BAN_PINS="123&456" #锦鲤助力时这里指定的pin将不助力(黑名单)
 pwd
 _ftype=""
 get_arch=`arch`
@@ -27,6 +28,17 @@ if [ $_ftype == "" ]; then
 	echo "不支持的架构$get_arch"
 else
 	echo "执行$_ftype"
-	eval "chmod +x ./BBK/$_ftype.bbk"
-	eval "./BBK/$_ftype.bbk -t jinli"
+    if [ -f "$PWD/BBK/$_ftype.bbk" ]; then
+        echo "$PWD/BBK/$_ftype.bbk"
+        eval "chmod +x ./BBK/$_ftype.bbk"
+        eval "./BBK/$_ftype.bbk -t jinli"
+    else
+        if [ ! -f "$PWD/$_ftype.bbk" ]; then
+            echo "在$PWD/BBK目录、$PWD目录下均未找到文件$_ftype.bbk"
+            exit 1
+        fi
+        echo "$PWD/$_ftype.bbk"
+        eval "chmod +x $PWD/$_ftype.bbk"
+        eval "$PWD/$_ftype.bbk -t jinli"
+    fi
 fi

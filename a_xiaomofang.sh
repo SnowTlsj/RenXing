@@ -24,6 +24,17 @@ if [ $_ftype == "" ]; then
 	echo "不支持的架构$get_arch"
 else
 	echo "执行$_ftype"
-	eval "chmod +x ./BBK/$_ftype.bbk"
-	eval "./BBK/$_ftype.bbk -t xiaomofang"
+    if [ -f "$PWD/BBK/$_ftype.bbk" ]; then
+        echo "$PWD/BBK/$_ftype.bbk"
+        eval "chmod +x ./BBK/$_ftype.bbk"
+        eval "./BBK/$_ftype.bbk -t xiaomofang"
+    else
+        if [ ! -f "$PWD/$_ftype.bbk" ]; then
+            echo "在$PWD/BBK目录、$PWD目录下均未找到文件$_ftype.bbk"
+            exit 1
+        fi
+        echo "$PWD/$_ftype.bbk"
+        eval "chmod +x $PWD/$_ftype.bbk"
+        eval "$PWD/$_ftype.bbk -t xiaomofang"
+    fi
 fi

@@ -1,10 +1,8 @@
 #!/bin/bash
-# new Env('BBK-挖宝顺序助力版');
+# new Env('BBK-平行时空任务');
 # export JD_LOG_XYZ_TOKEN="从机器人获取的token"
 # export Proxy_Url="代理网址 例如：星空、熊猫 生成选择txt 一次一个"
-# export WABAO_SUSSCESS_COUNT="111" #挖宝助力次数限制，助力111次
-# export WABAO_BAN_PINS="123&456" #挖宝助力时这里指定的pin将不助力(黑名单)
-# 需要`wabaolist.txt`，存放需要助力的URL,一行一个
+# export BUN_EARTH_AUTO_PROMOTE="true" #自动升级
 pwd
 _ftype=""
 get_arch=`arch`
@@ -30,7 +28,7 @@ else
     if [ -f "$PWD/BBK/$_ftype.bbk" ]; then
         echo "$PWD/BBK/$_ftype.bbk"
         eval "chmod +x ./BBK/$_ftype.bbk"
-        eval "./BBK/$_ftype.bbk -t wabao"
+        eval "./BBK/$_ftype.bbk -t pingxingshikong"
     else
         if [ ! -f "$PWD/$_ftype.bbk" ]; then
             echo "在$PWD/BBK目录、$PWD目录下均未找到文件$_ftype.bbk"
@@ -38,6 +36,6 @@ else
         fi
         echo "$PWD/$_ftype.bbk"
         eval "chmod +x $PWD/$_ftype.bbk"
-        eval "$PWD/$_ftype.bbk -t wabao"
+        eval "$PWD/$_ftype.bbk -t pingxingshikong"
     fi
 fi

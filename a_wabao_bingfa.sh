@@ -4,6 +4,7 @@
 # export Proxy_Url="代理网址 例如：星空、熊猫 生成选择txt 一次一个"
 # export WABAO_SUSSCESS_COUNT="111" #挖宝助力次数限制，助力111次
 # export WABAO_BINGFA="true" #挖宝并发版任务默认不执行，启用需设置环境变量
+# export WABAO_BAN_PINS="123&456" #挖宝助力时这里指定的pin将不助力(黑名单)
 # 需要`wabaolist.txt`，存放需要助力的URL,一行一个
 pwd
 _ftype=""
@@ -27,6 +28,17 @@ if [ $_ftype == "" ]; then
 	echo "不支持的架构$get_arch"
 else
 	echo "执行$_ftype"
-	eval "chmod +x ./BBK/$_ftype.bbk"
-	eval "./BBK/$_ftype.bbk -t wabao_bingfa"
+    if [ -f "$PWD/BBK/$_ftype.bbk" ]; then
+        echo "$PWD/BBK/$_ftype.bbk"
+        eval "chmod +x ./BBK/$_ftype.bbk"
+        eval "./BBK/$_ftype.bbk -t wabao_bingfa"
+    else
+        if [ ! -f "$PWD/$_ftype.bbk" ]; then
+            echo "在$PWD/BBK目录、$PWD目录下均未找到文件$_ftype.bbk"
+            exit 1
+        fi
+        echo "$PWD/$_ftype.bbk"
+        eval "chmod +x $PWD/$_ftype.bbk"
+        eval "$PWD/$_ftype.bbk -t wabao_bingfa"
+    fi
 fi
