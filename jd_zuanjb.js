@@ -8,7 +8,7 @@ export InviterPin="rlNJtSzYPmUgCq3ezx1BJpWETmKazT8G6C/PnbRdEzA=" ##你的邀请�
 
 [task_local]
 #柠檬赚金币
-20 0 * * * jd_zjb.js, tag=柠檬赚金币, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
+1 0 * * * jd_zuanjb.js, tag=柠檬赚金币, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
 */
 const $ = new Env('邀请有礼');
 const notify = $.isNode() ? require('./sendNotify') : '';
