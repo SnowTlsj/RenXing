@@ -45,7 +45,7 @@ docker run -p 6379:6379 --name redis -v /mydata/redis/data:/data -v /mydata/redi
 ```Bash
 png-js
 date-fns
-axios
+axios@v0.27.2
 dotenv
 got
 crypto-js
