@@ -1,7 +1,12 @@
 #!/bin/bash
 # new Env('BBK-小魔方');
+# cron 31 13 * * * a_xiaomofang.sh
 # export JD_LOG_XYZ_TOKEN="从机器人获取的token"
 # export Proxy_Url="代理网址 例如：星空、熊猫 生成选择txt 一次一个"
+# export XIAOMOFANG_DELAY="2" #等待几秒 默认0秒 可选参数,可以不填。
+# export XIAOMOFANG_EXCHANGES="1;3;6" #兑换几魔方 默认兑换3魔方 可选参数
+# export XIAOMOFANG_PROXY="true" #黑IP自动使用代理 默认不用代理 可选参数,可以不填。
+# export XIAOMOFANG_USE_PROXY="true" #强制使用代理 默认不用代理 可选参数,可以不填。
 pwd
 _ftype=""
 get_arch=`arch`

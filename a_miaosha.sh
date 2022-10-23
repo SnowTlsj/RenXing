@@ -1,7 +1,11 @@
 #!/bin/bash
 # new Env('BBK-秒杀');
+# cron 31 18 * * * a_miaosha.sh
 # export JD_LOG_XYZ_TOKEN="从机器人获取的token"
 # export Proxy_Url="代理网址 例如：星空、熊猫 生成选择txt 一次一个"
+# export MIAOSHA_DEALY="2" #等待几秒 默认0秒 可选参数,可以不填。
+# export MIAOSHA_PROXY="true" #黑IP自动使用代理 默认不用代理 可选参数,可以不填。
+# export MIAOSHA_USE_PROXY="true" #强制使用代理 默认不用代理 可选参数,可以不填。
 pwd
 _ftype=""
 get_arch=`arch`
