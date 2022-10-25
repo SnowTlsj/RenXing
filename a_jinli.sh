@@ -12,6 +12,11 @@
 # export JINLI_USE_PROXY="true" #强制使用代理访问
 pwd
 _ftype=""
+use_get_arch=${BBK_ARCH}
+if [ $use_get_arch != "" ]; then
+  get_arch=$use_get_arch
+  echo "指定运行$use_get_arch"
+fi
 get_arch=`arch`
 echo $get_arch
 if [[ $get_arch =~ "x86_64" ]];then

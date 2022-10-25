@@ -9,6 +9,11 @@
 # export XIAOMOFANG_USE_PROXY="true" #强制使用代理 默认不用代理 可选参数,可以不填。
 pwd
 _ftype=""
+use_get_arch=${BBK_ARCH}
+if [ $use_get_arch != "" ]; then
+  get_arch=$use_get_arch
+  echo "指定运行$use_get_arch"
+fi
 get_arch=`arch`
 echo $get_arch
 if [[ $get_arch =~ "x86_64" ]];then

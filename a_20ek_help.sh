@@ -7,6 +7,11 @@
 pwd
 _ftype=""
 get_arch=`arch`
+use_get_arch=${BBK_ARCH}
+if [ $use_get_arch != "" ]; then
+  get_arch=$use_get_arch
+  echo "指定运行$use_get_arch"
+fi
 echo $get_arch
 if [[ $get_arch =~ "x86_64" ]];then
 	_ftype="linux-amd64"

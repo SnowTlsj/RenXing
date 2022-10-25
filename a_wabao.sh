@@ -11,6 +11,11 @@
 # 支持PIN或者链接方式(`wabaolist.txt`存放需要助力的URL,一行一个)
 pwd
 _ftype=""
+use_get_arch=${BBK_ARCH}
+if [ $use_get_arch != "" ]; then
+  get_arch=$use_get_arch
+  echo "指定运行$use_get_arch"
+fi
 get_arch=`arch`
 echo $get_arch
 if [[ $get_arch =~ "x86_64" ]];then
