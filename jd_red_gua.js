@@ -4,9 +4,9 @@
 脚本锁佣建议用新的京粉号
 https://u.jd.com/xxxxxxx
 
-返利变量：JD_221111Red_rebateCode，若需要返利给自己，请自己修改环境变量[JD_221111Red_rebateCode]
+返利变量：JD_221111Red_rebateCode，若需要返利给自己，请自己修改脚本第20行环境变量[JD_221111Red_rebateCode]
 xxxxxxx换成自己的返利 就是链接后面那7位字母
-export JD_221111Red_rebateCode="xxxxxxx"
+process.env.JD_221111Red_rebateCode='xxxxxx'
 
 需要助力ck中的pin值
 pin1换成对应的pin值 用,分开(填中文)
