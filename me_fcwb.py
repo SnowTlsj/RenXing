@@ -120,7 +120,7 @@ def taskGetUrl(functionId, body, cookie):
     }
     for n in range(3):
         try:
-            res=requests.get(url,headers=headers, timeout=10).json()
+            res=requests.get(url,headers=headers, timeout=30).json()
             return res
         except:
             if n==2:
@@ -221,7 +221,7 @@ def happyDigHome(cookie):
  # 玩一玩
 def apDoTask(cookie):
      print('开始做玩一玩任务')
-     body={"linkId":linkId,"taskType":"BROWSE_CHANNEL","taskId":840,"channel":4,"itemId":"https%3A%2F%2Fprodev.m.jd.com%2Fjdlite%2Factive%2FeVgKdaU5TKnGZfSWCRe79hqfLXp%2Findex.html","checkVersion":False}
+     body={"linkId":linkId,"taskType":"BROWSE_CHANNEL","taskId":962,"channel":4,"itemId":"https%3A%2F%2Fwqs.jd.com%2Fsns%2F202210%2F20%2Fmake-money-shop%2Findex.html%3FactiveId%3D63526d8f5fe613a6adb48f03","checkVersion":False}
      res=taskGetUrl('apDoTask', body, cookie)
      if not res:
          return
@@ -287,96 +287,7 @@ def happyDigDo(cookie,roundid,rowIdx,colIdx):
 #     else:
 #         print(res['errMsg'])
 
-# 领取奖励
-#def happyDigExchange(cookie):
-#    for n in range(1,4):
-#        xueliang(cookie)
-#        print(f"\n开始领取第{n}场的奖励")
-#        body={"round":n,"linkId":linkId}
-##        res=taskGetUrl("happyDigExchange", body, cookie)
-#        if not res:
-#            return
-#        if res['code']==0:
-#            if res['success']:
- #               try:
- #                   print(f"已领取极速版红包 {res['data']['redValue']} 🧧")
-#                except:
-#                    print('')
-#                if res['data']['wxValue'] != "0":
-#                    try:
-#                        print(f"可提现微信零钱 {res['data']['wxValue']} 💰")
-#                    except:
-#                        pass
-#            else:
-#                print(res['errMsg'])
-#        else:
-#            print(res['errMsg'])
 
-
-
-# 微信现金id
-#def spring_reward_list(cookie):
-#    happyDigExchange(cookie)
- #   xueliang(cookie)
-    
-#    body={"linkId":linkId,"pageNum":1,"pageSize":6}
- #   res=taskGetUrl("spring_reward_list", body, cookie)
-    
-#    if res['code']==0:
-#        if res['success']:
-#            items=res['data']['items']
-#            for _items in items:
-#                amount=_items['amount']         # 金额
-#                prizeDesc=_items['prizeDesc']   # 金额备注
-##                amountid=_items['id']           # 金额id
-#                poolBaseId=_items['poolBaseId']
- #               prizeGroupId=_items['prizeGroupId']
-#                prizeBaseId=_items['prizeBaseId']
-#                if '红包' in f"{prizeDesc}":
-#                    continue
-#                if '券' in f"{prizeDesc}":
-#                    continue
-#                else:
-#                    print('\n去提现微信零钱 💰')
- #                   time.sleep(3.2)
-#                    wecat(cookie,amountid,poolBaseId,prizeGroupId,prizeBaseId)
-#        else:
-#            print(f'获取数据失败\n{res}\n')
-#    else:
-#        print(f'获取数据失败\n{res}\n')
-
-# 微信提现
-#def wecat(cookie,amountid,poolBaseId,prizeGroupId,prizeBaseId):
-#    xueliang(cookie)
-    
-#    url='https://api.m.jd.com'
-#    headers={
-#        'Cookie': cookie,
-#        'Host': 'api.m.jd.com',
-#        'Connection': 'keep-alive',
-#        'origin': 'https://bnzf.jd.com',
-#        'Content-Type': 'application/x-www-form-urlencoded',
- ##       "User-Agent": ua(),
- #       'Accept-Language': 'zh-cn',
- #       'Accept-Encoding': 'gzip, deflate, br',
- #   }
-#    body={"businessSource":"happyDiggerH5Cash","base":{"id":amountid,"business":"happyDigger","poolBaseId":poolBaseId,"prizeGroupId":prizeGroupId,"prizeBaseId":prizeBaseId,"prizeType":4},"linkId":linkId}
-#    data=f"functionId=apCashWithDraw&body={json.dumps(body)}&t=1635596380119&appid=activities_platform&client=H5&clientVersion=1.0.0"
-#    for n in range(3):
-#        try:
-#            res=requests.post(url,headers=headers,data=data,timeout=10).json()
-#            break
- #       except:
- #           if n==2:
- #               print('API请求失败，请检查网路重试❗\n') 
- #   try:
- #       if res['code']==0:
-  #          if res['success']:
- #               print(res['data']['message']+'\n')
- #   except:
- #       print(res)
- #       print('')
-    
 
 def main():
     print('🔔发财挖宝，开始！\n')
