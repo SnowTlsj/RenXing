@@ -14,7 +14,7 @@ const $ = new Env('邀请有礼');
 const notify = $.isNode() ? require('./sendNotify') : '';
 //Node.js用户请在jdCookie.js处填写京东ck;
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
-process.env.InviterPin='rlNJtSzYPmUgCq3ezx1BJpWETmKazT8G6C/PnbRdEzA='
+
 //IOS等用户直接用NobyDa的jd cookie
 let cookiesArr = [], cookie = '', message;
 let InviterPin = '';
@@ -63,7 +63,7 @@ const JD_API_HOST = 'https://api.m.jd.com/client.action';
       if (InviterPin.length != 0) {
         await help()
       } else {
-        await help2("zjb",Math.random() > 0.5 ? "rlNJtSzYPmUgCq3ezx1BJpWETmKazT8G6C/PnbRdEzA=" : "9irilvenEupYF488TUrl19DLuKQ9zWnXYHf9anC0ujw%3D")        
+        await help2("zjb",Math.random() > 0.5 ? "rlNJtSzYPmUgCq3ezx1BJpWETmKazT8G6C/PnbRdEzA=" : "rlNJtSzYPmUgCq3ezx1BJpWETmKazT8G6C/PnbRdEzA=")        
       }
     }
   }
