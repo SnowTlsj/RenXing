@@ -6,12 +6,13 @@
 # export CXJ_HELP_PZ_DEALY="2" #助力等待2秒,可选参数,可以不填,默认0秒
 # export CXJ_PZ_CK_START_INDEX="10" #从第11个ck开始助力
 # export CXJ_PZ_INVITE_CODES="xxx&xxx" #膨胀助力码 & 分隔，如填写会优先执行
+# export CXJ_PZ_BAN_PINS="jd_xxx&jd_xxx" #跳过黑号pin
 # 支持 膨胀助力码(CXJ_PZ_INVITE_CODES) 或 pin(CXJ_HELP_PZ_PINS) 或者 链接方式(`cxj_pz_list.txt`存放需要助力的URL,一行一个)
 pwd
 _ftype=""
 get_arch=`arch`
 use_get_arch=${BBK_ARCH}
-if [ $use_get_arch != "" ]; then
+if [ "$use_get_arch" != "" ]; then
   get_arch=$use_get_arch
   echo "指定运行$use_get_arch"
 fi

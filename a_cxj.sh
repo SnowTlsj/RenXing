@@ -6,11 +6,12 @@
 # export CXJ_AUTO_PROMOTE="true" # 自动升级
 # export CXJ_TASK_BINGFA="true" # 启用并发
 # export CXJ_BINGFA_COUNT="5" # 5个并发数量，限制最多20个，默认4个
+# export CXJ_TASK_BAN_PINS="jd_xxx&jd_xxx" #跳过黑号pin
 pwd
 _ftype=""
 get_arch=`arch`
 use_get_arch=${BBK_ARCH}
-if [ $use_get_arch != "" ]; then
+if [ "$use_get_arch" != "" ]; then
   get_arch=$use_get_arch
   echo "指定运行$use_get_arch"
 fi

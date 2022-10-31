@@ -10,7 +10,7 @@ pwd
 _ftype=""
 get_arch=`arch`
 use_get_arch=${BBK_ARCH}
-if [ $use_get_arch != "" ]; then
+if [ "$use_get_arch" != "" ]; then
   get_arch=$use_get_arch
   echo "指定运行$use_get_arch"
 fi
