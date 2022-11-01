@@ -4,7 +4,7 @@
 脚本全部来源于  Faker，环境，KR，YYDS，锦鲤偷撸库  未删减<br><br>
 ## 拉库命令<br>库中包含test_|me_自用脚本（默认拉库命令只包含人形所需脚本）
 ```Bash
-ql repo https://ghproxy.com/https://github.com/SnowTlsj/RenXing.git "jd_|pkc_|jdCookie.js" "" "^jd[^_]|USER|function|BBK|utils|MR_util|sendNotify"
+ql repo https://ghproxy.com/https://github.com/SnowTlsj/RenXing.git "jd_|pkc_|jdCookie.js" "" "^jd[^_]|USER|function|BBK|utils|ql|MR_util|sendNotify"
 ```
 ### 拉库参数详情
 | jd_\|pkc_\|jdCookie.js                   | 普通监控 |
