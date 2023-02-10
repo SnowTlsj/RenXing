@@ -1,5 +1,5 @@
 """
-# 邀好友赢大礼 create by doubi 通用模板 
+# 邀好友赢大礼 create by doubi 通用模板
 # 17:/椋东送福利，邀请好友，争排行榜排位，大礼送不停，(E1Y7RAtC4b) ，升级新版猄·=·Dσσōngαpρ
 # https://prodev.m.jd.com/mall/active/dVF7gQUVKyUcuSsVhuya5d2XD4F/index.html?code=16dde1860f1b4f1b9a93db6612abf0b9&invitePin=pin值
 # 注意事项 pin 为助力pin 必须保证ck在里面
@@ -7,7 +7,7 @@
 # 作者授权发布KR库。搬运请完整保留注释。
 
 环境变量说明：
-export yhypin="需要助力的pin值"  
+export yhypin="需要助力的pin值"
 export yhyauthorCode="活动ID"
 
 cron: 6 6 6 6 *
