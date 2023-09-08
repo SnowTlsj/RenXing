@@ -6,24 +6,24 @@ const got = require('got')
 const API = process.env.JD_SIGN_API || 'http://api.nolanstore.cc/sign'
 
 /**
- * @describe 获取JD签名（杂货铺接口基准格式）
+ * @describe 获取签名
  * @param {string} functionId - 接口函数ID
  * @param {object} params - 接口请求参数
- * @returns {string} - 接口签名
+ * @returns {string} - 签名字符串（url参数格式）
  */
 async function getSign(functionId, params) {
     let sign = ''
-    let body = JSON.stringify({
+    let body = {
         fn: functionId,
-        body: JSON.stringify(params),
-    })
+        body: params,
+    }
     try {
         const res = await got
             .post(API, {
                 headers: {
                     'Content-Type': 'application/json; charset=utf-8',
                 },
-                body: body,
+                body: JSON.stringify(body),
                 retry: 1,
                 timeout: 10000,
             })

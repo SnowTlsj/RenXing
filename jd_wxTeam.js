@@ -3,7 +3,7 @@
 活动链接：https://lzkj-isv.isvjd.com/wxTeam/activity2/activity?activityId=<活动id>
         https://cjhy-isv.isvjcloud.com/wxTeam/activity?activityId=<活动id>
 环境变量：jd_wxTeam_activityUrl // 活动链接（必填）
-        jd_wxTeam_joinMember // 是否入会（true/false），默认不入会
+        jd_wxTeam_joinMember // 是否入会（true/false），默认不入会（并发不支持入会）
         jd_wxTeam_Notify // 是否推送通知（true/false），默认不推送
         jd_wxTeam_Concurrent // 是否启用并发模式（true/false），默认不开启
         jd_wxTeam_maxConcurrency // 控制最大并发线程数，默认3
