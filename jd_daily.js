@@ -6,6 +6,8 @@
         jd_daily_joinMember // 是否开卡，默认不开卡
         jd_daily_notify // 是否推送通知，默认不推送
 
+7 7 7 7 * 
+
 */
 
 const $ = new Env('每日抢好礼（超级无线/超级会员）')

@@ -1,10 +1,12 @@
 /*
 活动名称：店铺礼包 · 超级无线/超级会员/fjzy
 活动链接：https://lzkj-isv.isvjd.com/wxShopGift/activity?activityId=<活动id>
-		 https://cjhy-isv.isvjcloud.com/wxShopGift/activity?activityId=<活动id>
-		 https://fjzy-isv.isvjcloud.com/index.php?mod=wxShopGift&c=giftOne&activeId=<活动id>
+		https://cjhy-isv.isvjcloud.com/wxShopGift/activity?activityId=<活动id>
+		https://fjzy-isv.isvjcloud.com/index.php?mod=wxShopGift&c=giftOne&activeId=<活动id>
 环境变量：jd_wxShopGift_activityUrl // 活动链接
-		 jd_wxShopGift_openCard // 是否开卡，默认不开卡
+		jd_wxShopGift_openCard // 是否开卡，默认不开卡
+
+7 7 7 7 * 
 
 */
 

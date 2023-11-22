@@ -2,9 +2,11 @@
 活动名称：粉丝互动 · 超级无线
 活动地址：https://lzkjdz-isv.isvjd.com/wxFansInterActionActivity/activity/activity?activityId=<活动id>
 环境变量：jd_wxFansInterActionActivity_activityId // 活动id
-         jd_wxFansInterActionActivity_addCart // 是否做加购任务，默认不做
+        jd_wxFansInterActionActivity_addCart // 是否做加购任务，默认不做
 
 脚本自动入会，不想入会勿跑！
+
+7 7 7 7 * 
 
 */
 

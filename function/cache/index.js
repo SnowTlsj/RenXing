@@ -1,4 +1,9 @@
-const DS = require('ds').DS
+let DS = require('ds')
+try {
+    if (DS.toString() === '[object Object]') {
+        DS = DS.DS
+    }
+} catch {}
 function Cache(ttl = 0, save_file = null) {
     let me = this
     me.now = function () {

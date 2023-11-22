@@ -5,6 +5,8 @@
         jd_drawCenter_notify // 是否推送通知，默认不推送
         jd_drawCenter_addCart // 是否做加购任务，默认不做
 
+7 7 7 7 * 
+
 默认助力第一个号
 
 */

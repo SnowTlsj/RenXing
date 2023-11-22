@@ -9,6 +9,8 @@
         jd_shopSign_joinMember // 是否入会（true/false），默认不入会
         jd_shopSign_notify // 是否推送通知（true/false），默认不推送
 
+7 7 7 7 * 
+
 */
 
 const $ = new Env('无线店铺签到（超级无线/超级会员）')

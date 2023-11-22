@@ -5,6 +5,8 @@
         jd_completeInfoActivity_joinMember // 是否开卡，默认不开卡
         jd_completeInfoActivity_notify // 是否推送通知，默认不推送
 
+7 7 7 7 * 
+
 */
 
 const $ = new Env('完善信息有礼（超级会员）')

@@ -3,6 +3,8 @@
 活动链接：https://lzkjdz-isv.isvjd.com/wxCartKoi/cartkoi/activity/activity?activityId=<活动id>
 环境变量：jd_wxCartKoi_activityId // 活动id
 
+7 7 7 7 * 
+
 纯加购类活动，不想加购勿跑！
 脚本自动入会，不想入会勿跑！
 

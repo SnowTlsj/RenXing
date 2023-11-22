@@ -5,6 +5,8 @@
 VENDER_ID // venderId或vendorId的值，多个用&、@或逗号连接，但是不要混用
 OPENCARD_BEAN // 最小入会京豆（默认10）
 
+7 7 7 7 * 
+
 */
 
 const $ = new Env('入会开卡领取礼包')

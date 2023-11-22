@@ -2,9 +2,11 @@
 活动名称：无线游戏 · 超级无线
 活动链接：https://lzkj-isv.isvjd.com/wxgame/activity/activity?activityId=<活动id>
 环境变量：jd_wxgame_activityId // 活动id
-         jd_wxgame_addCart // 是否做加购任务，默认不做
+        jd_wxgame_addCart // 是否做加购任务，默认不做
 
 默认助力第一个号
+
+7 7 7 7 * 
 
 */
 

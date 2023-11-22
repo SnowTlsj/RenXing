@@ -2,7 +2,9 @@
 活动名称：盖楼有礼 · 超级无线
 活动链接：https://lzkj-isv.isvjd.com/wxBuildActivity/activity?activityId=<活动id>
 环境变量：jd_wxBuildActivity_activityId // 活动id
-         jd_wxBuildActivity_openCard // 是否开卡，默认不开卡
+        jd_wxBuildActivity_openCard // 是否开卡，默认不开卡
+
+7 7 7 7 * 
 
 */
 

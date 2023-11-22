@@ -1,9 +1,11 @@
 /*
 活动名称：知识超人 · 超级无线/超级会员
 活动链接：https://lzkj-isv.isvjcloud.com/wxKnowledgeActivity/activity/activity?activityId=<活动id>
-         https://cjhy-isv.isvjcloud.com/wxKnowledgeActivity/activity/activity?activityId=<活动id>
+        https://cjhy-isv.isvjcloud.com/wxKnowledgeActivity/activity/activity?activityId=<活动id>
 环境变量：jd_wxKnowledgeActivity_activityUrl // 活动链接
-         jd_wxKnowledgeActivity_openCard // 是否开卡，默认不开卡
+        jd_wxKnowledgeActivity_openCard // 是否开卡，默认不开卡
+
+7 7 7 7 * 
 
 */
 

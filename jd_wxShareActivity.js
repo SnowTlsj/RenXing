@@ -2,7 +2,9 @@
 活动名称：分享有礼 · 超级无线
 活动链接：https://lzkjdz-isv.isvjd.com/wxShareActivity/activity/activity?activityId=<活动id>
 环境变量：jd_wxShareActivity_activityId // 活动id
-         jd_wxShareActivity_helpnum // 需要助力的账号数量
+        jd_wxShareActivity_helpnum // 需要助力的账号数量
+
+7 7 7 7 * 
 
 */
 

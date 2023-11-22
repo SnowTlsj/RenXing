@@ -3,6 +3,8 @@
 
 环境变量：VENDER_ID // venderId或vendorId的值，多个用&、@或逗号连接，但是不要混用
 
+7 7 7 7 * 
+
 */
 
 const $ = new Env('强制入会')
